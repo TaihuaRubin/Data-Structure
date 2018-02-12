@@ -1,4 +1,4 @@
-# Review Week Checkpoint: Data Structures
+# Review Exercise: Data Structures
 
 ## Fork the Repo
 
@@ -10,15 +10,15 @@
 2. `npm test`
 3. Navigate to the URL displayed by Test'Em
 
-## Checkpoint Parameters
+## Exercise Parameters
 
 You may work on the suites in any order, except that to do `HashTable` you need a working `Alist`. Note that some suites are extra credit.
 
-You can pass the `Queue` & `Stack` specs using simple array methods to begin. If you have time, attempt `Queue` & `Stack` solutions that use pointers (indices) or Linked Lists; however, you are encouraged to work on other specs first.
+You are free to use any reference materials you find, and are encouraged to meet with instructors or fellows if you get stuck and need some guidance. We only ask that you do not copy and paste code from somewhere else, or look up solutions - doing so will rob you of a valuable learning experience, and make it difficult for us to accurately gauge your comfort level with the material.
 
 ## Submitting your Code
 
-You are encouraged to make commits at major milestones. Before the deadline, make sure to push up a submission commit:
+You are encouraged to make commits frequently. Before the due date, make sure to push up a submission commit:
 
 1. `git commit -am 'submission for deadline'`
 2. `git push`

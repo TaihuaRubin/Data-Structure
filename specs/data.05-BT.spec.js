@@ -1,6 +1,8 @@
 'use strict';
 /* global BinarySearchTree */
-// Data Structures Review Week Assessment
+/* eslint-env jasmine */
+
+// Data Structures Review Exercise
 
 /* You are encouraged to implement these methods using recursion. For extra
 credit, you may also want to try implementing them without recursion, though
@@ -8,14 +10,14 @@ an iterative in-order traversal of a tree is not entirely straightforward. */
 
 describe('A binary search tree', function () {
 
-  var tree;
+  let tree;
   beforeEach(function () {
     tree = new BinarySearchTree(50);
   });
 
   it('is created with the correct value', function () {
     expect(tree.value).toBe(50);
-    var tree2 = new BinarySearchTree('Frodo');
+    const tree2 = new BinarySearchTree('Frodo');
     expect(tree2.value).toBe('Frodo');
   });
 
@@ -28,8 +30,8 @@ describe('A binary search tree', function () {
   });
 
   it('inserts many values in the correct locations', function () {
-    [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach(function(n) {
-      return tree.insert(n);
+    [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach((n) => {
+      tree.insert(n);
     });
     expect(tree.left.value).toBe(15);
     expect(tree.right.value).toBe(66);
@@ -43,16 +45,16 @@ describe('A binary search tree', function () {
   });
 
   it('finds the minimum and maximum', function () {
-    [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach(function(n) {
-      return tree.insert(n);
+    [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach((n) => {
+      tree.insert(n);
     });
     expect(tree.min()).toBe(5);
     expect(tree.max()).toBe(99);
   });
 
   it('confirms containment (or not) of values', function () {
-    [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach(function(n) {
-      return tree.insert(n);
+    [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach((n) => {
+      tree.insert(n);
     });
     expect(tree.contains(45)).toBe(true);
     expect(tree.contains(54)).toBe(true);
@@ -61,11 +63,11 @@ describe('A binary search tree', function () {
   });
 
   it('processes its nodes using in-order traversal', function () {
-    [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach(function(n) {
-      return tree.insert(n);
+    [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach((n) => {
+      tree.insert(n);
     });
-    var vals = [];
-    tree.traverse(function (value) {
+    let vals = [];
+    tree.traverse((value) => {
       vals.push(value);
     });
     expect(vals).toEqual([5, 15, 19, 36, 45, 50, 54, 66, 95, 99]);

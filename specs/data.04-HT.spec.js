@@ -1,13 +1,15 @@
 'use strict';
 /* global HashTable */
-// Data Structures Review Week Assessment
+/* eslint-env jasmine */
+
+// Data Structures Review Exercise
 
 // NOTE: this suite requires a working Association List.
 
 describe('A hash table', function () {
 
-  var hashTable;
-  beforeEach(function () {
+  let hashTable;
+  beforeEach(() => {
     hashTable = new HashTable();
   });
 

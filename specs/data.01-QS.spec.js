@@ -1,15 +1,17 @@
 'use strict';
 /* global Queue Stack */
-// Data Structures Review Week Assessment
+/* eslint-env jasmine */
 
-// For Queues and Stacks: use any array methods (pop/push/shift/unshift).
-// If you have time at the end, you can attempt index-only solutions —
-// as in, no .length and no Array.prototype methods.
+// Data Structures Review Exercise
+
+// For Queues and Stacks: don't use array methods push/pop/shift/unshift functions, nor any other Array.prototype methods, nor .length!
+
+// You may use an Object or Array to store your data and keep head and tail pointers (variables) that change when functions like enqueue and dequeue are called.
 
 describe('A stack', function () {
 
-  var stack, uniqueObj = { id: 456 };
-  beforeEach(function () {
+  let stack, uniqueObj = { id: 456 };
+  beforeEach(() => {
     stack = new Stack();
   });
 
@@ -47,7 +49,7 @@ describe('A stack', function () {
 
   // no globals!
   it('adds and removes its own items', function () {
-    var s2 = new Stack();
+    const s2 = new Stack();
     stack.add('fullstack');
     s2.add('JavaScript');
     expect(stack.remove()).toBe('fullstack');
@@ -62,8 +64,8 @@ describe('A queue', function () {
 
   pending('This is an extra-credit suite. Remove this line to try it.');
 
-  var queue, uniqueObj = { id: 123 };
-  beforeEach(function () {
+  let queue, uniqueObj = { id: 123 };
+  beforeEach(() => {
     queue = new Queue();
   });
 
@@ -101,7 +103,7 @@ describe('A queue', function () {
 
   // no globals!
   it('adds and removes its own items', function () {
-    var q2 = new Queue();
+    const q2 = new Queue();
     queue.add('fullstack');
     q2.add('JavaScript');
     expect(q2.remove()).toBe('JavaScript');

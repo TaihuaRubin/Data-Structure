@@ -1,13 +1,13 @@
 'use strict';
 /* global LinkedList */
-// Data Structures Review Week Assessment
+/* eslint-env jasmine */
+
+// Data Structures Review Exercise
 
 describe('A doubly-linked list', function () {
 
-  pending('This is an extra-credit suite. Remove this line to try it.');
-
-  var list, uniqueObj = { id: 789 };
-  beforeEach(function () {
+  let list, uniqueObj = { id: 789 };
+  beforeEach(() => {
     list = new LinkedList();
   });
 
@@ -62,8 +62,8 @@ describe('A doubly-linked list', function () {
     list.addToTail('Gandalf')
         .addToTail('Dumbledore')
         .addToTail('Merlin');
-    var initials = [];
-    list.forEach(function (item) {
+    const initials = [];
+    list.forEach((item) => {
       initials.push(item[0]);
     });
     // this is the main test...

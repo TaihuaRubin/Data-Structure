@@ -1,6 +1,8 @@
 'use strict';
 /* global Alist */
-// Data Structures Review Week Assessment
+/* eslint-env jasmine */
+
+// Data Structures Review Exercise
 
 // An association list is a singly-linked list which adds to the head only,
 // and whose nodes contain not just values but rather key-value pairs.
@@ -8,8 +10,8 @@
 
 describe('An association list', function () {
 
-  var alist;
-  beforeEach(function () {
+  let alist;
+  beforeEach(() => {
     alist = new Alist();
   });
 
