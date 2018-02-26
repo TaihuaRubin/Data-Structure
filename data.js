@@ -60,6 +60,22 @@ class LinkedList {
   constructor () {
     this.head = this.tail = null;
   }
+
+  // LinkedList.prototype.addToTail
+  addToTail (item) {
+    // your code here
+    return this; // for chaining, do not edit
+  }
+
+  // LinkedList.prototype.removeFromTail
+  removeFromTail () {
+    // your code here
+  }
+
+  // LinkedList.prototype.forEach
+  forEach (iterator) {
+    // your code here
+  }
 }
 
 class ListNode {
@@ -68,22 +84,6 @@ class ListNode {
     this.item = item;
     this.next = next || null;
     this.prev = prev || null;
-  }
-
-  // ListNode.prototype.addToTail
-  addToTail (item) {
-    // your code here
-    return this; // for chaining, do not edit
-  }
-
-  // ListNode.prototype.removeFromTail
-  removeFromTail () {
-    // your code here
-  }
-
-  // ListNode.prototype.forEach
-  forEach (iterator) {
-    // your code here
   }
 }
 
