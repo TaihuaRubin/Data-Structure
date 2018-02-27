@@ -95,15 +95,6 @@ class Alist {
   constructor () {
     // your code here
   }
-}
-
-class AlistNode {
-  // AlistNode constructor function
-  constructor (key, value, next) {
-    this.key = key;
-    this.value = value;
-    this.next = next;
-  }
 
   // Alist.prototype.set
   set (key, value) {
@@ -114,6 +105,15 @@ class AlistNode {
   // Alist.prototype.get
   get (key) {
     // your code here
+  }
+}
+
+class AlistNode {
+  // AlistNode constructor function
+  constructor (key, value, next) {
+    this.key = key;
+    this.value = value;
+    this.next = next;
   }
 }
 
