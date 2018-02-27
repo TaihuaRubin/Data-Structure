@@ -73,7 +73,7 @@ class LinkedList {
   }
 
   // LinkedList.prototype.forEach
-  forEach (iterator) {
+  forEach (callbackFunc) {
     // your code here
   }
 }
@@ -178,7 +178,7 @@ class BinarySearchTree {
   }
 
   // BinarySearchTree.prototype.traverse
-  traverse (iterator) {
+  traverse (callbackFunc) {
     // your code here
   }
 }
