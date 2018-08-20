@@ -4,5 +4,14 @@
     "data.js",
     "*.solution.js",
     "specs/*.spec.js"
-  ]
+  ],
+  "launch_in_ci" : [
+    "Chrome"
+  ],
+  "browser_args": {
+    "Chrome": [
+      "--remote-debugger-port=9222",
+      "--no-sandbox"
+    ]
+  }
 }
