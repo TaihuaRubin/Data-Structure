@@ -1,43 +1,49 @@
-'use strict';
+"use strict";
 /* global LinkedList */
 /* eslint-env jasmine */
 
 // Data Structures Review Exercise
 
-describe('A doubly-linked list', function () {
+describe("A doubly-linked list", function () {
+  pending("This is an extra-credit suite. Remove this line to try it.");
 
-  pending('This is an extra-credit suite. Remove this line to try it.');
-
-  let list, uniqueObj = { id: 789 };
+  let list,
+    uniqueObj = { id: 789 };
   beforeEach(() => {
     list = new LinkedList();
   });
 
-  it('can add to the tail', function () {
+  it("can add to the tail", function () {
     list.addToTail(uniqueObj);
     expect(list.head).toBe(list.tail);
-    expect(list.tail).toEqual(jasmine.objectContaining({
-      item: uniqueObj,
-      next: null,
-      prev: null
-    }));
+    expect(list.tail).toEqual(
+      jasmine.objectContaining({
+        item: uniqueObj,
+        next: null,
+        prev: null,
+      })
+    );
   });
 
-  it('can add two items', function () {
-    list.addToTail('first').addToTail('second');
-    expect(list.head).toEqual(jasmine.objectContaining({
-      item: 'first',
-      next: list.tail,
-      prev: null
-    }));
-    expect(list.tail).toEqual(jasmine.objectContaining({
-      item: 'second',
-      next: null,
-      prev: list.head
-    }));
+  it("can add two items", function () {
+    list.addToTail("first").addToTail("second");
+    expect(list.head).toEqual(
+      jasmine.objectContaining({
+        item: "first",
+        next: list.tail,
+        prev: null,
+      })
+    );
+    expect(list.tail).toEqual(
+      jasmine.objectContaining({
+        item: "second",
+        next: null,
+        prev: list.head,
+      })
+    );
   });
 
-  it('can add multiple items', function () {
+  it("can add multiple items", function () {
     list.addToTail(1).addToTail(2).addToTail(3);
     expect(list.head.prev).toBe(null);
     expect(list.tail.next).toBe(null);
@@ -49,7 +55,7 @@ describe('A doubly-linked list', function () {
     expect(list.tail.prev.prev).toBe(list.head);
   });
 
-  it('can remove items cleanly', function () {
+  it("can remove items cleanly", function () {
     list.addToTail(500).addToTail(404).addToTail(200);
     expect(list.removeFromTail()).toBe(200);
     expect(list.tail.next).toBe(null);
@@ -60,20 +66,17 @@ describe('A doubly-linked list', function () {
     expect(list.removeFromTail()).toBe(undefined);
   });
 
-  it('can call a function on each node item', function () {
-    list.addToTail('Gandalf')
-        .addToTail('Dumbledore')
-        .addToTail('Merlin');
+  it("can call a function on each node item", function () {
+    list.addToTail("Gandalf").addToTail("Dumbledore").addToTail("Merlin");
     const initials = [];
     list.forEach((item) => {
       initials.push(item[0]);
     });
     // this is the main test...
-    expect(initials).toEqual(['G', 'D', 'M']);
+    expect(initials).toEqual(["G", "D", "M"]);
     // ...but also, don't mutate your list!
-    expect(list.head.item).toBe('Gandalf');
-    expect(list.head.next.item).toBe('Dumbledore');
-    expect(list.head.next.next.item).toBe('Merlin');
+    expect(list.head.item).toBe("Gandalf");
+    expect(list.head.next.item).toBe("Dumbledore");
+    expect(list.head.next.next.item).toBe("Merlin");
   });
-
 });

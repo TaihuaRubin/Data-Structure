@@ -89,7 +89,14 @@ class LinkedList {
 
   // LinkedList.prototype.addToTail
   addToTail(item) {
-    // your code here
+    // if we have no item at all
+    if (this.head === null) {
+      this.head = this.tail = new ListNode(item);
+    } else {
+      const newNode = new ListNode(item, this.tail, null);
+      this.tail.next = newNode;
+    }
+
     return this; // for chaining, do not edit
   }
 
@@ -117,20 +124,44 @@ class ListNode {
 // Association lists
 
 class Alist {
+  // the lasted set would be the "next"
+
   // Alist constructor function
   constructor() {
-    // your code here
+    this.head = null;
   }
 
   // Alist.prototype.set
   set(key, value) {
-    // your code here
+    let newNode = new AlistNode(key, value, null);
+
+    if (this.head === null) {
+      this.head = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+
     return this; // for chaining; do not edit
   }
 
   // Alist.prototype.get
   get(key) {
-    // your code here
+    // check head
+    if (this.head !== null && this.head.key === key) {
+      return this.head.value;
+    } else {
+      // check this.head.next
+      let currentNode = this.head;
+      while (currentNode.next) {
+        if (currentNode.next.key === key) {
+          return currentNode.next.value;
+        } else {
+          currentNode = currentNode.next;
+        }
+      }
+    }
+    return undefined;
   }
 }
 
