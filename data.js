@@ -189,21 +189,30 @@ class HashTable {
   // HashTable constructor function
   constructor() {
     this.buckets = Array(20);
-    // your code here
+    // so there's 20 buckets in this table,
+    // when collition of hashkeys happen, they go on that particular key's bucket's linked list...
+    for (let i = 0; i < 20; i++) {
+      this.buckets[i] = new Alist();
+    }
+    console.log("the buckets", this.buckets);
   }
 
   // HashTable.prototype.set
   set(key, value) {
-    // your code here. DO NOT simply set a prop. on an obj., that's cheating!
-    return this; // for chaining, do not edit
+    // get hashkey
+    const hashIdx = hash(key);
+    this.buckets[hashIdx].set(key, value);
+    return this;
   }
 
   // HashTable.prototype.get
   get(key) {
-    // your code here. DO NOT simply get a prop. from an obj., that's cheating!
+    const hashIdx = hash(key);
+    const list = this.buckets[hashIdx];
+
+    return this.buckets[hashIdx].get(key);
   }
 }
-
 //-----------------------------------------
 // Binary search trees
 
