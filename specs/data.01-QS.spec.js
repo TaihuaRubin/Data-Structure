@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 /* global Queue Stack */
 /* eslint-env jasmine */
 
@@ -8,19 +8,19 @@
 
 // You may use an Object or Array to store your data and keep head and tail pointers (variables) that change when functions like enqueue and dequeue are called.
 
-describe('A stack', function () {
-
-  let stack, uniqueObj = { id: 456 };
+describe("A stack", function () {
+  let stack,
+    uniqueObj = { id: 456 };
   beforeEach(() => {
     stack = new Stack();
   });
 
-  it('adds and removes an item', function () {
+  it("adds and removes an item", function () {
     stack.add(uniqueObj);
     expect(stack.remove()).toBe(uniqueObj);
   });
 
-  it('returns `undefined` on underflow (empty)', function () {
+  it("returns `undefined` on underflow (empty)", function () {
     expect(stack.remove()).toBe(undefined);
     stack.add(uniqueObj);
     expect(stack.remove()).toBe(uniqueObj);
@@ -28,15 +28,15 @@ describe('A stack', function () {
   });
 
   // LIFO: Last In, First Out
-  it('adds and removes three items in a LIFO way', function () {
-    stack.add(5).add(uniqueObj).add('fullstack');
-    expect(stack.remove()).toBe('fullstack');
+  it("adds and removes three items in a LIFO way", function () {
+    stack.add(5).add(uniqueObj).add("fullstack");
+    expect(stack.remove()).toBe("fullstack");
     expect(stack.remove()).toBe(uniqueObj);
     expect(stack.remove()).toBe(5);
     expect(stack.remove()).toBe(undefined);
   });
 
-  it('can handle interspersed add and remove', function () {
+  it("can handle interspersed add and remove", function () {
     stack.add(1);
     expect(stack.remove()).toBe(1);
     stack.add(2).add(3);
@@ -48,33 +48,32 @@ describe('A stack', function () {
   });
 
   // no globals!
-  it('adds and removes its own items', function () {
+  it("adds and removes its own items", function () {
     const s2 = new Stack();
-    stack.add('fullstack');
-    s2.add('JavaScript');
-    expect(stack.remove()).toBe('fullstack');
+    stack.add("fullstack");
+    s2.add("JavaScript");
+    expect(stack.remove()).toBe("fullstack");
     expect(stack.remove()).toBe(undefined);
-    expect(s2.remove()).toBe('JavaScript');
+    expect(s2.remove()).toBe("JavaScript");
     expect(s2.remove()).toBe(undefined);
   });
-
 });
 
-describe('A queue', function () {
+describe("A queue", function () {
+  // pending('This is an extra-credit suite. Remove this line to try it.');
 
-  pending('This is an extra-credit suite. Remove this line to try it.');
-
-  let queue, uniqueObj = { id: 123 };
+  let queue,
+    uniqueObj = { id: 123 };
   beforeEach(() => {
     queue = new Queue();
   });
 
-  it('adds and removes an item', function () {
+  it("adds and removes an item", function () {
     queue.add(uniqueObj);
     expect(queue.remove()).toBe(uniqueObj);
   });
 
-  it('returns `undefined` on underflow (empty)', function () {
+  it("returns `undefined` on underflow (empty)", function () {
     expect(queue.remove()).toBe(undefined);
     queue.add(uniqueObj);
     expect(queue.remove()).toBe(uniqueObj);
@@ -82,15 +81,15 @@ describe('A queue', function () {
   });
 
   // FIFO: First In, First Out
-  it('adds and removes three items in a FIFO way', function () {
-    queue.add(5).add(uniqueObj).add('fullstack');
+  it("adds and removes three items in a FIFO way", function () {
+    queue.add(5).add(uniqueObj).add("fullstack");
     expect(queue.remove()).toBe(5);
     expect(queue.remove()).toBe(uniqueObj);
-    expect(queue.remove()).toBe('fullstack');
+    expect(queue.remove()).toBe("fullstack");
     expect(queue.remove()).toBe(undefined);
   });
 
-  it('can handle interspersed add and remove', function () {
+  it("can handle interspersed add and remove", function () {
     queue.add(1);
     expect(queue.remove()).toBe(1);
     queue.add(2).add(3);
@@ -102,14 +101,13 @@ describe('A queue', function () {
   });
 
   // no globals!
-  it('adds and removes its own items', function () {
+  it("adds and removes its own items", function () {
     const q2 = new Queue();
-    queue.add('fullstack');
-    q2.add('JavaScript');
-    expect(q2.remove()).toBe('JavaScript');
+    queue.add("fullstack");
+    q2.add("JavaScript");
+    expect(q2.remove()).toBe("JavaScript");
     expect(q2.remove()).toBe(undefined);
-    expect(queue.remove()).toBe('fullstack');
+    expect(queue.remove()).toBe("fullstack");
     expect(queue.remove()).toBe(undefined);
   });
-
 });

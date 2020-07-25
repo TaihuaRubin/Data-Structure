@@ -21,8 +21,8 @@ class Stack {
   // Stack.prototype.add
   add(item) {
     // check if the stack is empty
-    // if so, add the item to stack & make the stackTop 0
-    // if not, add item to stack & stackTop++
+    // if it is empty, make the stackTop 0 to add the item
+    // if not, ++ to add the item to that index
     if (this.stack === []) {
       this.stackTop = 0;
       this.stack[this.stackTop] = item;
@@ -31,19 +31,13 @@ class Stack {
       this.stackTop++;
       this.stack[this.stackTop] = item;
     }
-
     return this; // for chaining, do not edit
   }
 
   // Stack.prototype.remove
   remove() {
-    // we want to take this.stack[this.stackTop out]
-    // make sthe stackTop -= 1 (if not 0, if 0 -> null)
-    // return the removed item
     let removedItem = this.stack[this.stackTop];
-
     this.stackTop === 0 ? (this.stackTop = null) : this.stackTop--;
-
     return removedItem;
   }
 }
@@ -55,19 +49,30 @@ class Stack {
 
 class Queue {
   // Queue constructor function
+  // Queue -> FIFO
   constructor() {
-    // your code here
+    this.queue = [];
+    this.next = null;
   }
 
   // Queue.prototype.add
   add(item) {
-    // your code here
+    this.queue = [...this.queue, item];
+    if (this.next === null) {
+      this.next = 0;
+    }
     return this; // for chaining, do not edit
   }
 
   // Queue.prototype.remove
   remove() {
-    // your code here
+    if (this.next === null) {
+      return undefined;
+    } else {
+      let removedItem = this.queue[this.next];
+      this.next++;
+      return removedItem;
+    }
   }
 }
 
