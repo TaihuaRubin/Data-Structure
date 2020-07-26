@@ -112,7 +112,6 @@ class LinkedList {
   removeFromTail() {
     while (this.tail && this.tail !== this.head) {
       let removedNode = this.tail;
-      console.log(removedNode);
       // new tail = prev
       this.tail = removedNode.prev;
       this.tail.next = null;
