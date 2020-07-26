@@ -194,7 +194,6 @@ class HashTable {
     for (let i = 0; i < 20; i++) {
       this.buckets[i] = new Alist();
     }
-    console.log("the buckets", this.buckets);
   }
 
   // HashTable.prototype.set
@@ -220,31 +219,74 @@ class BinarySearchTree {
   // BinarySearchTree constructor function
   constructor(val) {
     // your code here
+    this.value = val;
+    this.left = null;
+    this.right = null;
   }
 
   // BinarySearchTree.prototype.insert
   insert(val) {
-    // your code here
+    let newTree = new BinarySearchTree(val);
+
+    // get direction
+    const direction = val < this.value ? "left" : "right";
+
+    if (!this[direction]) {
+      this[direction] = newTree;
+    } else {
+      this[direction].insert(val);
+    }
+
     return this; // for chaining, do not edit
   }
 
   // BinarySearchTree.prototype.min
   min() {
-    // your code here
+    let curNode = this;
+    while (curNode.left) {
+      curNode = curNode.left;
+    }
+
+    return curNode.value;
   }
 
   // BinarySearchTree.prototype.max
   max() {
-    // your code here
+    let curNode = this;
+    while (curNode.right) {
+      curNode = curNode.right;
+    }
+    return curNode.value;
   }
 
   // BinarySearchTree.prototype.contains
   contains(val) {
-    // your code here
+    // check this
+    if (this.value === val) return true;
+
+    let dir = val < this.value ? "left" : "right";
+    // check the dir
+    if (this[dir]) {
+      if (this[dir].value === val) {
+        return true;
+      } else {
+        return this[dir].contains(val);
+      }
+    } else {
+      return false;
+    }
   }
 
   // BinarySearchTree.prototype.traverse
   traverse(callbackFunc) {
-    // your code here
+    //left -> root -> right
+    if (this.left) {
+      this.left.traverse(callbackFunc);
+    }
+    callbackFunc(this.value);
+
+    if (this.right) {
+      this.right.traverse(callbackFunc);
+    }
   }
 }
