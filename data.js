@@ -128,7 +128,18 @@ class LinkedList {
 
   // LinkedList.prototype.forEach
   forEach(callbackFunc) {
-    // your code here
+    let allNode = [];
+    // start with head
+    let currentNode = this.head;
+    // keep pushing & re-assign currentNode to .next
+    while (currentNode.next) {
+      allNode.push(currentNode.item);
+      currentNode = currentNode.next;
+      console.log(currentNode);
+    }
+    // until currentNode.next is null, then we still want to push this one
+    allNode.push(currentNode.item);
+    return allNode.forEach((each) => callbackFunc(each));
   }
 }
 
