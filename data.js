@@ -89,12 +89,20 @@ class LinkedList {
 
   // LinkedList.prototype.addToTail
   addToTail(item) {
-    // if we have no item at all
-    if (this.head === null) {
-      this.head = this.tail = new ListNode(item);
+    // if we have no item
+    if (!this.head) {
+      let newNode = new ListNode(item, null, null);
+      this.head = newNode;
+      this.tail = newNode;
+    } else if (this.head === this.tail) {
+      // if we have only one
+      let newNode = new ListNode(item, this.tail);
+      this.head.next = newNode;
+      this.tail = newNode;
     } else {
-      const newNode = new ListNode(item, this.tail, null);
-      this.tail.next = newNode;
+      let newNode = new ListNode(item, this.tail);
+      this.tail.next = newNode; // link new tail to prev tail
+      this.tail = this.tail.next; // re-set the new tail
     }
 
     return this; // for chaining, do not edit
@@ -102,7 +110,21 @@ class LinkedList {
 
   // LinkedList.prototype.removeFromTail
   removeFromTail() {
-    // your code here
+    while (this.tail && this.tail !== this.head) {
+      let removedNode = this.tail;
+      console.log(removedNode);
+      // new tail = prev
+      this.tail = removedNode.prev;
+      this.tail.next = null;
+      return removedNode.item;
+    }
+    if (this.head && this.head === this.tail) {
+      let removedNode = this.head;
+      this.head = this.tail = null;
+      return removedNode.item;
+    } else {
+      return undefined;
+    }
   }
 
   // LinkedList.prototype.forEach
